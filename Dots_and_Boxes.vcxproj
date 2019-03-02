@@ -131,12 +131,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game_Table.cpp" />
     <ClCompile Include="Main_Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game_Table.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main_Menu.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Game_Table.resx">
+      <DependentUpon>Game_Table.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Menu.resx">
+      <DependentUpon>Main_Menu.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
