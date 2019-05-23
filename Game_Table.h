@@ -1,4 +1,5 @@
 #pragma once
+#include "Game_Data.h"
 
 namespace Dots_and_Boxes {
 
@@ -9,89 +10,44 @@ namespace Dots_and_Boxes {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for Game_Table
-	/// </summary>
 	public ref class Game_Table : public System::Windows::Forms::Form
 	{
 	public:
-		Game_Table(int _game_size)
-		{
-			game_size = _game_size;
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		Game_Table(int _game_size, bool _is_player_starts_first, bool is_player_red);
+		
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~Game_Table()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
+		
+		~Game_Table();
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+		
 		System::ComponentModel::Container ^components;
 		int game_size;
+		bool is_player_starts_first;
 		array<System::Windows::Forms::Button^, 2>^ horizontal_btn;
 		array<System::Windows::Forms::Button^, 2>^ vertical_btn;
-
+		array<System::Windows::Forms::Button^, 2>^ boxes_btn;
+		array<System::Windows::Forms::Button^, 2>^ dots_btn;
+		Game_Data* _game_data;
+		System::Drawing::Color player_color;
+		System::Drawing::Color bot_color;
+		System::Windows::Forms::Label^ player_label;
+		System::Windows::Forms::Label^ bot_label;
+		System::Windows::Forms::Label^ player_score_label;
+		System::Windows::Forms::Label^ bot_score_label;
+		int player_score;
+		int bot_score;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		void InitializeComponent(void)
-		{
-			this->SuspendLayout();
-			// 
-			// Game_Table
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(284, 261);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
-			this->Name = L"Game_Table";
-			this->Text = L"Game_Table";
-			this->Load += gcnew System::EventHandler(this, &Game_Table::Game_Table_Load);
-			this->ResumeLayout(false);
+		
+		void InitializeComponent(void);
 
-		}
 #pragma endregion
-	private: System::Void Game_Table_Load(System::Object^  sender, System::EventArgs^  e) {
-		this->ClientSize = System::Drawing::Size(32 * game_size + 32 + 40, 32 * game_size + 32 + 40);
-		horizontal_btn = gcnew array<System::Windows::Forms::Button^, 2> (game_size + 1, game_size);
-		vertical_btn = gcnew array<System::Windows::Forms::Button^, 2> (game_size + 1, game_size);
-		for (int i = 0; i < game_size + 1; i++) {
-			for (int j = 0; j < game_size; j++) {
-				horizontal_btn[i, j] = gcnew System::Windows::Forms::Button();
-				horizontal_btn[i, j]->Location = System::Drawing::Point(32 * j + 40, 32 * i + 32);
-				horizontal_btn[i, j]->Size = System::Drawing::Size(24, 8);
-				horizontal_btn[i, j]->BackColor = System::Drawing::Color::White;
-				horizontal_btn[i, j]->Cursor = System::Windows::Forms::Cursors::Hand;
-				horizontal_btn[i, j]->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-				this->Controls->Add(horizontal_btn[i, j]);
 
-				vertical_btn[i, j] = gcnew System::Windows::Forms::Button();
-				vertical_btn[i, j]->Location = System::Drawing::Point(32 * i + 32, 32 * j + 40);
-				vertical_btn[i, j]->Size = System::Drawing::Size(8, 24);
-				vertical_btn[i, j]->BackColor = System::Drawing::Color::White;
-				vertical_btn[i, j]->Cursor = System::Windows::Forms::Cursors::Hand;
-				vertical_btn[i, j]->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-				this->Controls->Add(vertical_btn[i, j]);
-			}
-		}
-	}
-	};
+	private: 
+		System::Void Btn_Line_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void Game_Table_Load(System::Object^  sender, System::EventArgs^  e);
+		void Bot_Turn_To_Play();
+};
 }

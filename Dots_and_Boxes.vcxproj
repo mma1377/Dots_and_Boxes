@@ -131,13 +131,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Boxes_List.cpp" />
+    <ClCompile Include="Box_Node.cpp" />
+    <ClCompile Include="Game_Data.cpp" />
     <ClCompile Include="Game_Table.cpp" />
     <ClCompile Include="Main_Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boxes_List.h" />
+    <ClInclude Include="Game_Data.h" />
     <ClInclude Include="Game_Table.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Box_Node.h" />
     <ClInclude Include="Main_Menu.h">
       <FileType>CppForm</FileType>
     </ClInclude>

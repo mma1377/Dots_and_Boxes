@@ -21,6 +21,15 @@
     <ClCompile Include="Game_Table.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Boxes_List.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Data.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Box_Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main_Menu.h">
@@ -29,9 +38,21 @@
     <ClInclude Include="Game_Table.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Box_Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boxes_List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game_Data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main_Menu.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game_Table.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
